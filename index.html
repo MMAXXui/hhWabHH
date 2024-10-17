@@ -21,7 +21,7 @@
         }
 
         .container {
-            background-color: #0a0e27; /* Removed transparency */
+            background-color: #0a0e27;
             padding: 50px;
             border-radius: 15px;
             box-shadow: 0 0 30px #00ccff, 0 0 60px #005f8a;
@@ -48,13 +48,14 @@
         }
 
         .btn {
-            font-size: 1.3em;
+            font-size: 1.1em;
             color: #0a0e27;
             background-color: #00ccff;
             border: none;
-            padding: 15px 40px;
+            padding: 12px 30px;
             border-radius: 12px;
             cursor: pointer;
+            margin-bottom: 10px;
             transition: background-color 0.3s ease;
             font-family: 'Verdana', sans-serif;
             box-shadow: 0 0 15px #00ccff, 0 0 30px #007acc;
@@ -65,50 +66,8 @@
         }
 
         @keyframes glitch {
-            0% {
-                clip: rect(42px, 9999px, 44px, 0);
-                transform: skew(0.35deg);
-            }
-            10% {
-                clip: rect(44px, 9999px, 59px, 0);
-                transform: skew(0.42deg);
-            }
-            20% {
-                clip: rect(24px, 9999px, 67px, 0);
-                transform: skew(0.22deg);
-            }
-            30% {
-                clip: rect(16px, 9999px, 50px, 0);
-                transform: skew(0.56deg);
-            }
-            40% {
-                clip: rect(22px, 9999px, 68px, 0);
-                transform: skew(0.25deg);
-            }
-            50% {
-                clip: rect(11px, 9999px, 43px, 0);
-                transform: skew(0.45deg);
-            }
-            60% {
-                clip: rect(17px, 9999px, 53px, 0);
-                transform: skew(0.35deg);
-            }
-            70% {
-                clip: rect(5px, 9999px, 60px, 0);
-                transform: skew(0.22deg);
-            }
-            80% {
-                clip: rect(32px, 9999px, 74px, 0);
-                transform: skew(0.31deg);
-            }
-            90% {
-                clip: rect(47px, 9999px, 55px, 0);
-                transform: skew(0.39deg);
-            }
-            100% {
-                clip: rect(43px, 9999px, 63px, 0);
-                transform: skew(0.42deg);
-            }
+            0% { clip: rect(42px, 9999px, 44px, 0); transform: skew(0.35deg); }
+            100% { clip: rect(43px, 9999px, 63px, 0); transform: skew(0.42deg); }
         }
 
         #matrix {
@@ -125,35 +84,51 @@
     <canvas id="matrix"></canvas>
     <div class="container">
         <h1 class="glitch">Download PC Check App</h1>
-        <div class="version-label">Version 1.1</div> <!-- Version label -->
+        <div class="version-label">Version 1.1</div>
+
         <div class="btn-container">
-            <button class="btn" onclick="window.location.href='https://github.com/MMAXXui/newapp/archive/refs/heads/main.zip';">Download Now</button>
+            <button class="btn" onclick="downloadFile('https://github.com/MMAXXui/newapp/archive/refs/heads/main.zip')">Download File 1</button><br>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/browserdownloadsview-x64.zip')">Download File 2</button><br>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/browsinghistoryview-x64.zip')">Download File 3</button><br>
+            <button class="btn" onclick="downloadFile('https://github.com/ponei/JournalTrace/releases/download/1.0/JournalTrace.exe')">Download File 4</button><br>
+            <button class="btn" onclick="downloadFile('https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe')">Download File 5</button><br>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/lastactivityview.zip')">Download File 6</button><br>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/recentfilesview.zip')">Download File 7</button><br>
+            <button class="btn" onclick="downloadFile('https://downloads.sourceforge.net/project/systeminformer/systeminformer-3.0.7660-release-setup.exe')">Download File 8</button><br>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/uninstallview-x64.zip')">Download File 9</button><br>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/winprefetchview-x64.zip')">Download File 10</button><br>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/windefthreatsview-x64.zip')">Download File 11</button>
         </div>
     </div>
 
     <script>
+        function downloadFile(url) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
-
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         const fontSize = 16;
         const columns = canvas.width / fontSize;
-
         const drops = Array(Math.floor(columns)).fill(1);
 
         function drawMatrix() {
             ctx.fillStyle = 'rgba(10, 14, 39, 0.1)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             ctx.fillStyle = '#00ccff';
             ctx.font = `${fontSize}px monospace`;
 
             drops.forEach((y, x) => {
                 const text = letters.charAt(Math.floor(Math.random() * letters.length));
-
                 ctx.fillText(text, x * fontSize, y * fontSize);
 
                 if (y * fontSize > canvas.height && Math.random() > 0.975) {
