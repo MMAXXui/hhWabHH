@@ -25,7 +25,7 @@
             padding: 50px;
             border-radius: 15px;
             box-shadow: 0 0 30px #00ccff, 0 0 60px #005f8a;
-            max-width: 600px;
+            max-width: 800px; /* Increase the width for more room */
             width: 100%;
         }
 
@@ -44,7 +44,10 @@
         }
 
         .btn-container {
-            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap; /* Ensure buttons wrap when the screen is smaller */
+            justify-content: center;
+            gap: 10px; /* Space between the buttons */
         }
 
         .btn {
@@ -55,7 +58,6 @@
             padding: 12px 30px;
             border-radius: 12px;
             cursor: pointer;
-            margin-bottom: 10px;
             transition: background-color 0.3s ease;
             font-family: 'Verdana', sans-serif;
             box-shadow: 0 0 15px #00ccff, 0 0 30px #007acc;
@@ -87,16 +89,16 @@
         <div class="version-label">Version 1.1</div>
 
         <div class="btn-container">
-            <button class="btn" onclick="downloadFile('https://github.com/MMAXXui/newapp/archive/refs/heads/main.zip')">Download File 1</button><br>
-            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/browserdownloadsview-x64.zip')">Download File 2</button><br>
-            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/browsinghistoryview-x64.zip')">Download File 3</button><br>
-            <button class="btn" onclick="downloadFile('https://github.com/ponei/JournalTrace/releases/download/1.0/JournalTrace.exe')">Download File 4</button><br>
-            <button class="btn" onclick="downloadFile('https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe')">Download File 5</button><br>
-            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/lastactivityview.zip')">Download File 6</button><br>
-            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/recentfilesview.zip')">Download File 7</button><br>
-            <button class="btn" onclick="downloadFile('https://downloads.sourceforge.net/project/systeminformer/systeminformer-3.0.7660-release-setup.exe')">Download File 8</button><br>
-            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/uninstallview-x64.zip')">Download File 9</button><br>
-            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/winprefetchview-x64.zip')">Download File 10</button><br>
+            <button class="btn" onclick="downloadFile('https://github.com/MMAXXui/newapp/archive/refs/heads/main.zip')">Download File 1</button>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/browserdownloadsview-x64.zip')">Download File 2</button>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/browsinghistoryview-x64.zip')">Download File 3</button>
+            <button class="btn" onclick="downloadFile('https://github.com/ponei/JournalTrace/releases/download/1.0/JournalTrace.exe')">Download File 4</button>
+            <button class="btn" onclick="downloadFile('https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe')">Download File 5</button>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/lastactivityview.zip')">Download File 6</button>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/recentfilesview.zip')">Download File 7</button>
+            <button class="btn" onclick="downloadFile('https://downloads.sourceforge.net/project/systeminformer/systeminformer-3.0.7660-release-setup.exe')">Download File 8</button>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/uninstallview-x64.zip')">Download File 9</button>
+            <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/winprefetchview-x64.zip')">Download File 10</button>
             <button class="btn" onclick="downloadFile('https://www.nirsoft.net/utils/windefthreatsview-x64.zip')">Download File 11</button>
         </div>
     </div>
